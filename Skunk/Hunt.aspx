@@ -1,20 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Hunt.aspx.cs" Inherits="Skunk.Hunt" %>
+﻿<%@ Page Title="Hunt" Language="C#" AutoEventWireup="true" CodeBehind="Hunt.aspx.cs" Inherits="Skunk.Hunt" MasterPageFile="~/Site.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="lblProductName" runat="server" Text=""></asp:Label>
-            <asp:Label ID="lDetails" runat="server" Text=""></asp:Label>
-            <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>
-            <asp:HyperLink ID="hlRate" runat="server">Comments</asp:HyperLink>
-            <asp:HiddenField ID="hProdID" runat="server" />
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <body>
+        <% if (!hunt_overview)
+            { %>
+                <div>
+                    <h3>Hunt Name:</h3>
+                    <asp:Label ID="lblProductName" runat="server" Text=""></asp:Label>
+                    <h3>Hunt Details:</h3>
+                    <asp:Label ID="lDetails" runat="server" Text=""></asp:Label>
+                    <h3>Hunt Price:</h3>
+                    <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>
+                    <h3>Comments:</h3>
+                    <asp:HyperLink ID="hlRate" runat="server">Comments</asp:HyperLink>
+                    <asp:HiddenField ID="hProdID" runat="server" />
+                </div>
+        <% }
+           else
+           { %>
+                <div>
+                    <asp:GridView runat="server" ID="huntGrid" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:HyperLinkField DataTextField="Name" HeaderText="Hunt Name" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="hunt.aspx?h={0}" />
+                            <asp:BoundField DataField="Price" HeaderText="Hunt Price"/>
+                            <asp:BoundField DataField="Description" HeaderText="Hunt Description"/>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+        <% } %>
+    </body>
+</asp:Content>

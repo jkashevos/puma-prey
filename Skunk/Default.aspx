@@ -2,12 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+    <!--<div class="jumbotron">-->
+        <!--<h1>Puma Prey Skunk</h1>-->
+        <asp:Image id="skunk" runat="server" ImageAlign="Middle" ImageUrl="Images/Puma_Scan_Skunk.png"/>
+        <p class="lead"></p>
+        <p><a href="/hunt.aspx" class="btn btn-primary btn-lg">Go on the hunt &raquo;</a></p>
+    <!--</div>-->
 
+    <!--
     <div class="row">
         <div class="col-md-4">
             <h2>Getting started</h2>
@@ -38,5 +40,6 @@
             </p>
         </div>
     </div>
+        -->
 
 </asp:Content>
